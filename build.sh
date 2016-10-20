@@ -7,6 +7,8 @@ docker run \
     -v $(pwd)/portageConfig/make.conf:/etc/portage/make.conf \
     -v $(pwd)/portageConfig/package.accept_keywords:/etc/portage/package.accept_keywords \
     -v $(pwd)/portageConfig/package.use:/etc/portage/package.use \
+    --cap-add SYS_PTRACE \
+    --security-opt seccomp:unconfined \
     --rm \
     d3v0x/gentoo \
     /bin/bash -c "\
