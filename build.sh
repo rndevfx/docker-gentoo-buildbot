@@ -10,6 +10,7 @@ docker run \
     --rm \
     d3v0x/gentoo \
     /bin/bash -c "\
+    echo 'MAKEOPTS=\"-j$(cat /proc/cpuinfo | grep processor | wc -l)\"' >> /etc/portage/make.conf && \
     emerge-webrsync -v && \
     emerge -uDN @world && \
     emerge $(cat world)"
